@@ -1,4 +1,5 @@
 // import './App.css';
+import logo from './images/logo.svg'
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
         <div className="page__container">
 
             <header className="header">
-                 <img className="header__logo" src="<%=require('./images/logo.svg')%>" alt="лого Mesto"/>
+                 <img src={logo} className="header__logo" alt="лого Mesto" />
             </header>
 
             <main className="content">
@@ -33,7 +34,7 @@ function App() {
                 </span>
                     <div className="profile__elements-wrap">
                         <div className="profile__name-wrap">
-                            <h1 className="profile__name">....</h1>
+                            <h1 className="profile__name">Жак-Ив Кусто....</h1>
                             <button className="btn profile__btn-edit opacity-transition" type="button"
                                     aria-label="edit"></button>
                         </div>
