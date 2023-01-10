@@ -1,10 +1,17 @@
 // import './App.css';
-import Header from './Header'
-import Main from './Main'
-import Footer from './Footer'
+import React, {useState} from 'react';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
+import PopupWithForm from './PopupWithForm';
 
 function App() {
-  return (
+
+    const [state, setState] = useState(0);
+     console.log(state)
+     console.log(setState)
+
+    return (
     <div className="App">
       {/*<header className="App-header">*/}
       {/*  <p>*/}
@@ -25,6 +32,9 @@ function App() {
             <Header />
 
             <Main />
+
+            <PopupWithForm id="1" title="Заменить аватар" name="edit-avatar" />
+
 
             <template id="card-template">
                 <li className="card">
