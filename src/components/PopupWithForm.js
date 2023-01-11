@@ -1,32 +1,26 @@
 import React from 'react';
 
-function PopupWithForm(props) {
+function PopupWithForm({ name, title, textButton, isOpen, children }) {
 
+    console.log(children)
     return (
 
         <>
-
-        <div className={`popup popup_type_${props.name}`} id="overlay_avatar">
-            <div className="popup__container" id="popup__container_type_edit-avatar">
+        <div className={`popup popup_type_${name} ${isOpen ? 'popup_opened' : ''}`}>
+            <div className="popup__container">
                 <button className="popup__btn-close opacity-transition" type="button"
                         aria-label="close"></button>
-                <form action="src/components/App" className="popup__form" id="form-edit-avatar" name={props.name}
-                      noValidate>
-                    <h2 className="popup__title">{props.title}</h2>
-                    <span className="popup__input-field popup__input-field_wrap">
-                            <input type="url" className="popup__input" id="avatar-input" name="linkavatar"
-                                   placeholder="Ссылка на картинку" required/>
-                            <span className="popup__input-span avatar-input-error"
-                                  id="input-edit-avatar-error"></span>
-                        </span>
+                <form action="src/components/App" className="popup__form" name={name} noValidate>
+                    <h2 className="popup__title">{title}</h2>
+                    {children}
                     <button type="submit"
-                            className="btn btn_submit btn_type_submit-edit-avatar opacity-transition">Сохранить
+                            className="btn btn_submit btn_type_submit-edit-avatar opacity-transition">{textButton}
                     </button>
                 </form>
             </div>
         </div>
 
-            <div className={`popup popup_type_${props.name}`} id="overlay_edit">
+            <div className={`popup popup_type_${name}`} id="overlay_edit">
               <div className="popup__container" id="popup__container_edit">
                 <button className="popup__btn-close opacity-transition" type="button"
                          aria-label="close"></button>
@@ -53,7 +47,7 @@ function PopupWithForm(props) {
                </div>
          </div>
 
-            <div className={`popup popup_type_${props.name}`} id="overlay_add-place">
+            <div className={`popup popup_type_${name}`} id="overlay_add-place">
                              <div className="popup__container" id="window_add-place">
                                  <button className="popup__btn-close opacity-transition" type="button"
                                          aria-label="close"></button>
@@ -79,7 +73,7 @@ function PopupWithForm(props) {
                              </div>
                          </div>
 
-            <div className={`popup popup_type_${props.name}`} id="overlay_delete">
+            <div className={`popup popup_type_${name}`} id="overlay_delete">
                              <div className="popup__container" id="popup__container_type_delete">
                                  <button className="popup__btn-close opacity-transition" type="button"
                                          aria-label="close"></button>
@@ -94,7 +88,6 @@ function PopupWithForm(props) {
                      </div>
 
         </>
-
     )
 }
 

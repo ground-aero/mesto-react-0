@@ -4,37 +4,61 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
+import ImagePopup from "./ImagePopup";
 
 function App() {
 
+    function handleEditAvatarClick() {
+        // return document.querySelector('#overlay_avatar').classList.add('popup_opened')
+        setEditAvatarPopupOpen(true)
+    }
+    function handleEditProfileClick() {
+        return document.querySelector('#overlay_edit').classList.add('popup_opened')
+    }
+    function handleAddPlaceClick() {
+        return document.querySelector('#overlay_add-place').classList.add('popup_opened')
+    }
+
     const [state, setState] = useState(0);
-     console.log(state)
-     console.log(setState)
+// console.log(state)
+// console.log(setState)
+    const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false)
+    const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false)
+    const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false)
+
 
     return (
-    <div className="App">
-    
-      {/*  <p>*/}
-      {/*    Edit <code>src/App.js</code> and save to reload.*/}
-      {/*  </p>*/}
-      {/*  <a*/}
-      {/*    className="App-link"*/}
-      {/*    href="https://reactjs.org"*/}
-      {/*    target="_blank"*/}
-      {/*    rel="noopener noreferrer"*/}
-      {/*  >*/}
-      {/*    Learn React*/}
-      {/*  </a>*/}
-      {/*</header>*/}
 
         <div className="page__container">
 
             <Header />
 
-            <Main />
+            <Main
+                onEditAvatar={ handleEditAvatarClick }
+                onEditProfile={ handleEditProfileClick }
+                onAddPlace={ handleAddPlaceClick }
+                />
 
-            <PopupWithForm id="1" title="Заменить аватар" name="edit-avatar" />
+            <Footer />
 
+            <PopupWithForm
+                isOpen={isEditAvatarPopupOpen}
+                title={"Заменить аватар"}
+                name={"edit-avatar"}
+                textButton={"Сохранить"}
+                >
+                <span className="popup__input-field popup__input-field_wrap">
+                    <input type="url" className="popup__input" id="avatar-input" name="linkavatar"
+                                   placeholder="Ссылка на картинку" required/>
+                    <span className="popup__input-span avatar-input-error"
+                                  id="input-edit-avatar-error"></span>
+                </span>
+            </PopupWithForm>
+
+            <PopupWithForm/>
+
+
+            <ImagePopup/>
 
             <template id="card-template">
                 <li className="card">
@@ -51,11 +75,10 @@ function App() {
                 </li>
             </template>
 
-            <Footer />
+
 
         </div>
 
-    </div>
   );
 }
 
