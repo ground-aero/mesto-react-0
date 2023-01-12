@@ -35,11 +35,9 @@
 @import url(./blocks/card/__btn-like/_active/card__btn-like_active.css);
 
 @import url(./blocks/btn/btn.css);
-@import url(./blocks/btn/_type/btn_type_save-profile.css);
-@import url(./blocks/btn/_type/btn_type_create-place.css);
-@import url(./blocks/btn/_type/btn_type_submit-edit-avatar.css);
 @import url(./blocks/btn/_status/btn_status_disabled.css);
 @import url(./blocks/btn/_type/btn_type_submit-delete.css);
+@import url(./blocks/btn/_submit/btn_submit.css);
 
 @import url(./blocks/opacity-transition/opacity-transition.css);
 

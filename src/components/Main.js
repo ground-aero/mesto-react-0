@@ -15,12 +15,12 @@ export default function Main(props) {
                     <div className="profile__name-wrap">
                         <h1 className="profile__name">Жак-Ив Кусто....</h1>
                         <button className="btn profile__btn-edit opacity-transition" type="button"
-                                onClick={props.onEditProfile} aria-label="edit"></button>
+                                onClick={ props.onEditProfile } aria-label="edit"></button>
                     </div>
                     <p className="profile__job">..</p>
                 </div>
                 <button className="btn profile__btn-addplace opacity-transition" type="button"
-                        onClick={props.onAddPlace} aria-label="add"></button>
+                        onClick={ props.onAddPlace } aria-label="add"></button>
             </section>
 
             <section className="elements content__section">

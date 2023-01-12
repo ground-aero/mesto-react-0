@@ -1,4 +1,4 @@
-.btn_type_submit-edit-avatar {
+.btn_submit {
     width: 100%;
     margin: 0;
     padding: 16px 0 14px;
@@ -9,13 +9,13 @@
     color: #fff;
 }
 
-.btn_type_submit-edit-avatar:hover {
+.btn_submit:hover {
     opacity: 0.8;
     cursor: pointer;
 }
 
 @media (max-width: 767px) {
-    .btn_type_submit-edit-avatar {
+    .btn_submit {
         font-size: 14px;
         line-height: 17px;
     }

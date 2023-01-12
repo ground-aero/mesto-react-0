@@ -13,10 +13,18 @@ function App() {
         setEditAvatarPopupOpen(true)
     }
     function handleEditProfileClick() {
-        return document.querySelector('#overlay_edit').classList.add('popup_opened')
+        // return document.querySelector('#overlay_edit').classList.add('popup_opened')
+        setEditProfilePopupOpen(true)
     }
     function handleAddPlaceClick() {
-        return document.querySelector('#overlay_add-place').classList.add('popup_opened')
+        // return document.querySelector('#overlay_add-place').classList.add('popup_opened')
+        setAddPlacePopupOpen(true)
+    }
+
+    function closeAllPopups() {
+        setEditAvatarPopupOpen(false)
+        setEditProfilePopupOpen(false)
+        setAddPlacePopupOpen(false)
     }
 
     const [state, setState] = useState(0);
@@ -43,10 +51,11 @@ function App() {
 
             <PopupWithForm
                 isOpen={isEditAvatarPopupOpen}
+                onClose={closeAllPopups}
                 title={"Заменить аватар"}
                 name={"edit-avatar"}
                 textButton={"Сохранить"}
-                >
+            >
                 <span className="popup__input-field popup__input-field_wrap">
                     <input type="url" className="popup__input" id="avatar-input" name="linkavatar"
                                    placeholder="Ссылка на картинку" required/>
@@ -55,7 +64,50 @@ function App() {
                 </span>
             </PopupWithForm>
 
-            <PopupWithForm/>
+            <PopupWithForm
+                isOpen={isEditProfilePopupOpen}
+                onClose={closeAllPopups}
+                title={"Редактировать профиль"}
+                name={"profile"}
+                textButton={"Сохранить"}
+            >
+                <span className="popup__input-field popup__input-field_wrap">
+                    <input type="text" className="popup__input" id="name-input" name="name"
+                           placeholder="Ваше имя"
+                           minLength="2" maxLength="40" required/>
+                     <span className="popup__input-span name-input-error"
+                           id="input-edit-error"></span>
+                </span>
+                <span className="popup__input-field popup__input-field_wrap">
+                    <input type="text" className="popup__input" id="job-input" name="about" placeholder="О себе"
+                           tabIndex="2" minLength="2" maxLength="200" required/>
+                     <span className="popup__input-span job-input-error"
+                           id="input-edit_minimum-error"></span>
+                </span>
+            </PopupWithForm>
+
+            <PopupWithForm
+                isOpen={isAddPlacePopupOpen}
+                onClose={closeAllPopups}
+                title={"Новое место"}
+                name={"place"}
+                textButton={"Создать"}
+            >
+                <span className="popup__input-field popup__input-field_wrap">
+                                         <input type="text" className="popup__input" id="place-input" name="name"
+                                                placeholder="Название"
+                                                tabIndex="1" minLength="2" maxLength="30" required/>
+                                         <span className="popup__input-span place-input-error"
+                                               id="input-addplace-error"></span>
+                                     </span>
+                <span className="popup__input-field popup__input-field_wrap">
+                                         <input type="url" className="popup__input" id="link-input" name="link"
+                                                placeholder="Ссылка на картинку" tabIndex="2" required/>
+                                         <span className="popup__input-span link-input-error"
+                                               id="input-addplace_url-error"></span>
+                                     </span>
+            </PopupWithForm>
+
 
 
             <ImagePopup/>
@@ -63,7 +115,7 @@ function App() {
             <template id="card-template">
                 <li className="card">
                     <button className="card__btn-del opacity-transition" type="button" aria-label="delete"></button>
-                    <img className="card__img" alt="#" src="src/components/App#"/>
+                    <img className="card__img" alt="#" src="src/components/App"/>
                     <div className="card__info-wrap">
                             <h2 className="card__title">Место</h2>
                             <div className="card__btn-like-wrap">
