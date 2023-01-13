@@ -112,23 +112,6 @@ function App() {
 
             <ImagePopup/>
 
-            <template id="card-template">
-                <li className="card">
-                    <button className="card__btn-del opacity-transition" type="button" aria-label="delete"></button>
-                    <img className="card__img" alt="#" src="src/components/App"/>
-                    <div className="card__info-wrap">
-                            <h2 className="card__title">Место</h2>
-                            <div className="card__btn-like-wrap">
-                                <button className="card__btn-like opacity-transition" type="button"
-                                        aria-label="like"></button>
-                                <span className="card__btn-like-count"></span>
-                            </div>
-                        </div>
-                </li>
-            </template>
-
-
-
         </div>
 
   );

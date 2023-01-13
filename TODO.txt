@@ -1,3 +1,28 @@
+Main.js:
+
+<li className="card">
+                        <button className="card__btn-del opacity-transition" type="button" aria-label="delete"></button>
+                        <img className="card__img" alt="#" src={cards.link} style={{ backgroundImage: `url(${cards.link})` }}/>
+                        <div className="card__info-wrap">
+                            <h2 className="card__title">{cards.name}</h2>
+
+                            <div className="card__btn-like-wrap">
+                                <button className="card__btn-like opacity-transition" type="button"
+                                        aria-label="like"></button>
+                                <span className="card__btn-like-count"></span>
+                            </div>
+
+                        </div>
+                    </li>
+
+
+
+
+
+
+
+
+
 App.js:
  <PopupWithForm
                 isOpen={isEditAvatarPopupOpen}
@@ -6,9 +31,6 @@ App.js:
                 textButton={"Сохранить"}
             >
                 <span className="popup__input-field popup__input-field_wrap">
-
-
-
 
                              </span>
             <PopupWithForm/>
